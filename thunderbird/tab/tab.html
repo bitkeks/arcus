@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>arcus</title>
+    <style type="text/css">
+        body > div { margin-bottom: 3em; }
+        body { width: 90%; margin: auto; margin-top: 2em; }
+        #key_generator_box, #encryption_box { border-top: 1px dotted gray; }
+        p#messagebox { padding: 1em; }
+    </style>
+</head>
+<body>
+    <img src="/logo.svg" height="80px">
+
+    <div>
+        <p>Welcome to Arcus, an encryption tool for Thunderbird - powered by rage and Rust! On this page you can store your existing secret key or generate a new one.</p>
+    </div>
+
+    <div>
+        <p id="messagebox"></p>
+    </div>
+
+    <div>
+        <h2>Manage your secret key</h2>
+        <p>If you wish to automatically decrypt text inside your received e-mails, store your secret key here:</p>
+        <form id="arcuskey">
+            <input id="key" type="text" size="74" value="" />
+            <input type="submit" value="Save">
+        </form>
+    </div>
+
+    <div id="key_generator_box">
+        <h2>Generate new key</h2>
+        <p>No key yet? Generate a new one!</p>
+        <input type="submit" value="Generate" id="generate_button"><br><br>
+        <div id="generate_key_box">
+            Public key: <pre><span id="generated_public"></span></pre><br>
+            Secret key: <pre><span id="generated_secret"></span></pre><br>
+            <input type="button" value="Download as txt" id="generate_download_button">
+        </div>
+    </div>
+
+    <div id="encryption_box">
+        <h2>Encrypt plain text</h2>
+        <p>In the following text box you can write your text and then encrypt it with your recipients key.</p>
+        <form id="encrypt">
+            <label for="plaintext">Your message as plain text:</label><br>
+            <textarea id="plaintext" name="plaintext" rows="10" cols="80"></textarea>
+
+            <br><br>
+
+            <label for="recipient_key">Recipient public key:</label><br>
+            <input id="recipient_key" type="text" size="64" value="">
+
+            <br><br>
+<!--
+
+            <input type="checkbox" id="encrypt_self" name="encrypt_self" value="encrypt self">
+            <label for="encrypt_self">Encrypt for your key as well?</label>
+
+            <br><br>
+-->
+
+            <input type="submit" value="Encrypt!">
+        </form><br>
+        <pre id="ciphertext_result"></pre>
+    </div>
+</body>
+<script src="tab.js"></script>
+</html>

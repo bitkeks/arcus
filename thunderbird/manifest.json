@@ -1,0 +1,40 @@
+{
+    "manifest_version": 2,
+    "name": "Arcus",
+    "description": "Modern encryption in Thunderbird - powered by Rust, rage and WebAssembly",
+    "version": "0.9.1",
+    "author": "Dominik Pataky",
+    "homepage_url": "https://github.com/bitkeks/arcus",
+    "icons": {
+		"48": "logo.svg",
+		"96": "logo.svg",
+		"128": "logo.svg"
+	},
+    "applications": {
+        "gecko": {
+            "id": "arcus@bitkeks.eu",
+            "strict_min_version": "78.0"
+        }
+    },
+    "background": {
+        "page": "background/background.html"
+    },
+    "browser_action": {
+        "default_icon" : "logo.svg"
+    },
+    "compose_action": {
+        "default_icon" : "logo.svg",
+        "default_label": "Encrypt with Arcus",
+        "browser_style": true
+    },
+    "permissions": [
+        "compose",
+        "storage",
+        "messagesRead",
+        "messagesModify",
+        "tabs",
+        "addressBooks",
+        "accountsRead",
+        "browserSettings"
+    ]
+}

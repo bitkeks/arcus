@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arcus encryption</title>
+    <style type="text/css">
+        body { padding: 1em; font-size: smaller; }
+        body > div { margin-bottom: 1em; }
+        input#close_button, input#encrypt_button { font-weight: bold; height: 3em; padding-left: 3ch; padding-right: 3ch; }
+        #messagebox { height: 100%; border-radius: 15px; border: 0px solid gray; padding: 1ch; }
+
+        #receiver_table td {
+            padding: 3px 4ch 3px 1ch;
+        }
+        tr.header td {
+            border-bottom: 1px solid black;
+            font-weight: bold;
+        }
+
+        td.success {
+            background: lightgreen;
+        }
+
+        td.fail {
+            background: #ff8f8f;
+        }
+    </style>
+</head>
+<body>
+    <h2><img src="/logo.svg" height="40px" style="margin-right: 2ch;"> Ready to encrypt your message?</h2>
+    <div>
+        <p id="messagebox"></p>
+    </div>
+
+    <h3>List of recipients:</h3>
+    <div>
+        <table id="receiver_table">
+            <tr class="header">
+                <td>Name</td>
+                <td>age key</td>
+            </tr>
+        </table>
+    </div>
+    <br>
+
+    <div id="not_found_contacts_div" style="display: none;">
+        <h3>Not all recipients have an age key stored!</h3>
+        <p>The following recipients in your "To" line do not have an age key stored in the addressbook. Use the form below to add additional recipient age keys.</p>
+        <ul id="not_found_contacts"></ul>
+    </div>
+    <br>
+
+    <div>
+        <h3>Add an additional recipient</h3>
+        <p>In case you wish to add more recipients to the list above, put in their age key (and optionally a name) and click "Add to list". The public key will be added to the table and used during encryption.</p>
+        <form>
+            <input type="text" placeholder="Name" id="add_recv_name">
+            <input type="text" placeholder="Key" id="add_recv_key" style="width: 74ch">
+            <input type="button" value="Add to list" id="add_recv_button">
+        </form>
+    </div>
+
+    <div style="text-align: right;">
+        <input type="button" value="Encrypt" id="encrypt_button">
+        <input type="button" value="Close" id="close_button">
+    </div>
+</body>
+<script type="module" src="compose_popup.js"></script>
+</html>
