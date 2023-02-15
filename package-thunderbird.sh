@@ -16,3 +16,6 @@ if [ -f "$TARGET_ZIP" ]; then
 fi
 
 zip -9 -rv $TARGET_ZIP ./
+
+echo
+echo "ZIP $TARGET_ZIP created"
